@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arqen Share Image</title>
+<meta name="description" content="Make the image that shows when your link is shared. See it on X, LinkedIn, Facebook, Discord and Slack before you post, and copy the meta tags.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="mark"></span>Arqen Share Image</div>
+  <span class="tag">Free · runs in your browser</span>
+</header>
+
+<main class="layout">
+  <section class="panel controls">
+    <h2>Content</h2>
+    <label>Title <span class="hint">*word* = accent color</span>
+      <textarea id="title" rows="2">Make links people *want* to click</textarea></label>
+    <label>Subtitle
+      <textarea id="subtitle" rows="2">The image that shows when your page is shared, ready in a minute.</textarea></label>
+    <label>Site name or URL
+      <input id="site" value="samidatools.com"></label>
+    <div class="row">
+      <label class="file">Logo<input type="file" id="logo" accept="image/*"><span id="logoName">None</span></label>
+      <button type="button" class="ghost small" data-clear="logo">Remove</button>
+    </div>
+    <div class="row">
+      <label class="file">Image<input type="file" id="background" accept="image/*"><span id="backgroundName">None</span></label>
+      <button type="button" class="ghost small" data-clear="background">Remove</button>
+    </div>
+    <p class="hint">The image fills the background, or the right side in the Split layout (a screenshot works well).</p>
+
+    <h2>Style</h2>
+    <label>Layout<select id="layout"></select></label>
+    <label>Font<select id="font"></select></label>
+    <label>Colors</label>
+    <div class="swatches" id="palette"></div>
+    <label>Pattern<select id="pattern"><option value="none">None</option><option value="grid">Grid</option><option value="dots">Dots</option></select></label>
+    <label id="overlayRow">Darken the image <input type="range" id="overlay" min="0" max="0.9" step="0.05" value="0.65"></label>
+  </section>
+
+  <section class="stage">
+    <div class="canvasWrap">
+      <canvas id="canvas" width="1200" height="630"></canvas>
+      <div class="safe" id="safe" hidden></div>
+    </div>
+    <div class="bar">
+      <label class="check"><input type="checkbox" id="showSafe"> Show square crop</label>
+      <span class="spacer"></span>
+      <select id="format"><option value="png">PNG</option><option value="jpeg">JPG</option></select>
+      <button type="button" id="download" class="primary">Download 1200 × 630</button>
+    </div>
+    <p class="hint" id="sizeInfo"></p>
+
+    <h2>How it looks when shared</h2>
+    <p class="hint">Close approximations of each platform's link card. They crop and label images differently, so check the parts that matter.</p>
+    <div class="previews" id="previews"></div>
+
+    <h2>Meta tags</h2>
+    <div class="row wrapRow">
+      <label class="grow">Page URL<input id="pageUrl" placeholder="https://example.com/page"></label>
+      <label class="grow">Image URL<input id="imageUrl" placeholder="https://example.com/og-image.png"></label>
+    </div>
+    <p class="hint">Upload the downloaded image to your site and put its full address here. Paste the tags inside &lt;head&gt;.</p>
+    <pre id="tags"></pre>
+    <button type="button" id="copy" class="ghost">Copy tags</button>
+  </section>
+</main>
+
+<footer class="foot">Made by <a href="https://samidatools.com/">samidatools</a> · Nothing is uploaded: your images stay in this browser.</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
