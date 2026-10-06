@@ -20,8 +20,14 @@ Ett verktyg för delningsbilder (Open Graph, 1200×630) som körs helt i webblä
 ## Lärdom
 - `document.fonts.load("900 48px \"Montserrat\"")` aktiverade inte typsnitten, så canvasen ritade med reservtypsnitt. `loadFonts()` laddar därför varje FontFace direkt med `face.load()`.
 
+## Live (2026-10-06)
+- **Adress:** https://samidatools.com/share-image/, uppladdad med `scp` till `strato:samidatools/share-image/` (index.html, style.css, app.js, render.js, og-image.png och fonts/).
+- **Delningsbild:** verktygets egen `og-image.png` är gjord i verktyget, och sidan har `og:`- och `twitter:`-taggar.
+- **Startsidan:** samidatools.com har ett kort, "Arqen Share Image" (Free). Backup: `index.pre-share-image.backup.html`.
+- **Startsidans delningsbild** (`samidatools.com/og-image.png`) är också gjord här.
+- **Projektlistan i Mission Control:** projektet står på 60 %. Kvar är batch (zip) och "kolla en adress".
+
 ## Nästa steg
 1. Användaren provar och ger feedback.
-2. Publicera på samidatools.com, till exempel samidatools.com/share-image/, och lägg till ett kort på startsidan. Gör en backup först.
-3. Använd verktyget till lanseringen: gör delningsbilder för samidatools.com och varje verktygssida.
-4. Senare: flera sidor på en gång (zip), och "kolla en adress", som kräver serverkod (PHP finns på servern).
+2. Använd verktyget till lanseringen: gör delningsbilder för samidatools.com och varje verktygssida.
+3. Senare: flera sidor på en gång (zip), och "kolla en adress", som kräver serverkod (PHP finns på servern).
