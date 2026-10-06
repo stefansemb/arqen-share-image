@@ -5,7 +5,7 @@ Ett verktyg för delningsbilder (Open Graph, 1200×630) som körs helt i webblä
 
 - **Lokalt:** konfigurationen `arqen-share-image` i Studios `.claude/launch.json` (port 5178), eller `python -m http.server 5178` i mappen.
 - **Filer:** `render.js` (ritar på canvas), `app.js` (redigerare, förhandsvisningar, nedladdning och taggar), `index.html`, `style.css` och `fonts/` (9 typsnitt med OFL-licens, kopierade från Arqen Thumbnail).
-- **Licens:** MIT. Planen är ett publikt repo, `stefansemb/arqen-share-image`. Det är inte skapat än.
+- **Licens:** MIT. Publikt repo: https://github.com/stefansemb/arqen-share-image (skapat 2026-10-06).
 
 ## Läge: första versionen (MVP), byggd och testad lokalt 2026-10-06
 - **4 layouter:** Headline, Logo on top, Split with image och Minimal.
@@ -22,7 +22,6 @@ Ett verktyg för delningsbilder (Open Graph, 1200×630) som körs helt i webblä
 
 ## Nästa steg
 1. Användaren provar och ger feedback.
-2. Skapa GitHub-repot och pusha (görs först när användaren säger till).
-3. Publicera på samidatools.com, till exempel samidatools.com/share-image/, och lägg till ett kort på startsidan. Gör en backup först.
-4. Använd verktyget till lanseringen: gör delningsbilder för samidatools.com och varje verktygssida.
-5. Senare: flera sidor på en gång (zip), och "kolla en adress", som kräver serverkod (PHP finns på servern).
+2. Publicera på samidatools.com, till exempel samidatools.com/share-image/, och lägg till ett kort på startsidan. Gör en backup först.
+3. Använd verktyget till lanseringen: gör delningsbilder för samidatools.com och varje verktygssida.
+4. Senare: flera sidor på en gång (zip), och "kolla en adress", som kräver serverkod (PHP finns på servern).
