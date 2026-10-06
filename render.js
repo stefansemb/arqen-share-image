@@ -100,11 +100,23 @@ function drawTitle(ctx, s, p, { x, y, maxWidth, maxLines, max, min, align = 'lef
   return y + size * 0.9 + (lines.length - 1) * lineHeight + size * 0.3;
 }
 
+// The subtitle never runs into the footer (site name) at the bottom.
+const SUBTITLE_BOTTOM = HEIGHT - PAD - 44;
+
 function drawSubtitle(ctx, s, p, { x, y, maxWidth, align = 'left', size = 30, maxLines = 2 }) {
   if (!s.subtitle) return y;
   ctx.font = `500 ${size}px ${BODY}`;
   ctx.fillStyle = p.muted;
-  const lines = wrap(ctx, words(s.subtitle.replace(/\*/g, '')), maxWidth).slice(0, maxLines);
+  const room = Math.floor((SUBTITLE_BOTTOM - y - size) / (size * 1.35)) + 1;
+  const all = wrap(ctx, words(s.subtitle.replace(/\*/g, '')), maxWidth);
+  const lines = all.slice(0, Math.max(0, Math.min(maxLines, room)));
+  if (!lines.length) return y;
+  if (lines.length < all.length) {
+    // Cut with an ellipsis rather than overlapping the footer.
+    const last = lines[lines.length - 1];
+    while (last.length > 1 && ctx.measureText(last.map((w) => w.w).join(' ') + '…').width > maxWidth) last.pop();
+    last[last.length - 1] = { ...last[last.length - 1], w: last[last.length - 1].w + '…' };
+  }
   lines.forEach((line, i) => {
     const t = line.map((w) => w.w).join(' ');
     ctx.fillText(t, align === 'center' ? x - ctx.measureText(t).width / 2 : x, y + size + i * size * 1.35);
